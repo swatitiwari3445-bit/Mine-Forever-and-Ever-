@@ -1,1 +1,781 @@
-# Mine-Forever-and-Ever-
+# Mine-Forever-and-Ever-💋
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Love Jar 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #fecfef;
+            --text-color: #4a4a4a;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --font-heading: 'Dancing Script', cursive;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+            overflow-x: hidden;
+            color: var(--text-color);
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.5%),
+                radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.5%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.5;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            from {
+                background-position: 0 0, 20px 20px;
+            }
+
+            to {
+                background-position: 0 1000px, 20px 1020px;
+            }
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: #d6336c;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* --- THE JAR --- */
+        .jar-container {
+            position: relative;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            perspective: 1000px;
+            /* For 3D feel */
+        }
+
+        .jar {
+            width: 200px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            border-radius: 40px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            position: relative;
+            box-shadow:
+                inset 0 0 20px rgba(255, 255, 255, 0.6),
+                0 15px 35px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(3px);
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .jar:hover {
+            transform: scale(1.02);
+        }
+
+        .lid {
+            width: 220px;
+            height: 45px;
+            background: linear-gradient(to right, #e0a3b3, #ffc3a0);
+            position: absolute;
+            top: -45px;
+            left: -14px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            z-index: 11;
+        }
+
+        .contents {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 35px;
+        }
+
+        /* Hearts inside the jar */
+        .heart-shape {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff6b6b;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            /* Softer edges */
+            animation: floatHeart 3s ease-in-out infinite alternate;
+            cursor: pointer;
+            /* Make it clickable */
+            transition: transform 0.2s ease;
+        }
+
+        .heart-shape:hover {
+            transform: scale(1.2) rotate(45deg);
+            /* Slight zoom on hover */
+            z-index: 20;
+        }
+
+        .heart-shape::before,
+        .heart-shape::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: inherit;
+            border-radius: 50%;
+        }
+
+        .heart-shape::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart-shape::after {
+            top: 0;
+            left: -15px;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(var(--r));
+            }
+
+            100% {
+                transform: translateY(-5px) rotate(var(--r));
+            }
+        }
+
+        /* Control Buttons */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--glass-border);
+            color: #d6336c;
+        }
+
+        .category-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(214, 51, 108, 0.2);
+        }
+
+        .proposal-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 35px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+            }
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 90%;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.active .glass-card {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ff6b6b;
+            line-height: 20px;
+        }
+
+        .modal-body h2 {
+            font-family: var(--font-heading);
+            color: #d6336c;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Flying Note Animation */
+        .flying-note {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            z-index: 50;
+            pointer-events: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Proposal Specifics */
+        .yes-btn {
+            background: #4cd137;
+            color: white;
+            margin: 10px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+        }
+
+        .no-btn {
+            background: #e84118;
+            color: white;
+            margin: 10px;
+            padding: 12px 30px;
+            position: relative;
+            font-size: 1.2rem;
+            transition: none;
+            /* Instant movement */
+        }
+
+        /* Celebration */
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 192, 203, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            display: none;
+            flex-direction: column;
+        }
+
+        .celebration-overlay.active {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .celebration-content h1 {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: #d6336c;
+            margin-bottom: 20px;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .jar {
+                width: 160px;
+                height: 240px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background-animation"></div>
+
+    <main class="container">
+        <header>
+            <h1>My Digital Love Jar <span class="heart-icon">💖</span></h1>
+            <p>Pick a category to pull a note from the jar...</p><br><br>
+        </header>
+
+        <div class="jar-container">
+            <div class="jar" id="loveJar">
+                <div class="lid"></div>
+                <div class="contents" id="jarContents">
+                    <!-- Hearts will be generated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn category-btn" data-category="compliments">💖 Compliments</button>
+            <button class="btn category-btn" data-category="jokes">😏 Inside Jokes</button>
+            <button class="btn category-btn" data-category="memories">💌 Memories</button>
+            <button class="btn category-btn" data-category="promises">🤞 Promises</button>
+        </div>
+
+        <div class="proposal-area">
+            <button id="proposalBtn" class="btn proposal-btn">Is there one last note? 💍</button>
+        </div>
+    </main>
+
+    <!-- Modal for Notes -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2 id="modalTitle">Title</h2>
+                <p id="modalText">Message goes here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Proposal -->
+    <div id="proposalModal" class="modal">
+        <div class="modal-content glass-card proposal-card">
+            <div class="modal-body">
+                <h2>Will You Be My Valentine? 🌹</h2>
+                <p>You make my world brighter every single day. I can't imagine life without you.</p>
+                <div class="proposal-buttons">
+                    <button id="yesBtn" class="btn yes-btn">YES! 😍</button>
+                    <button id="noBtn" class="btn no-btn">No 😢</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebrationOverlay" class="celebration-overlay hidden">
+        <div class="celebration-content">
+            <h1>YAY! ❤️</h1>
+            <p>Best. Valentine. Ever.</p>
+            <br>
+            <button class="btn category-btn close-celebration" style="background: white;">Close</button>
+        </div>
+    </div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // Data Arrays - Replace with your own content!
+        const compliments = [
+            "You light up every room you walk into.",
+            "Your smile is my favorite thing in the world.",
+            "I love the way you think.",
+            "You are incredibly kind and generous.",
+            "Being with you makes everything better.",
+            "You inspire me to be a better person.",
+            "You have the most beautiful soul.",
+            "I love your laugh!"
+        ];
+
+        const jokes = [
+            "Remember that time we tried to cook? Yeah, let's order pizza forever.",
+            "Inside Joke #404: Explanation not found.",
+            "You: *Sneezes* \nMe: 'Is that a yes?'",
+            "Us trying to navigate: 'Turn left!' 'No, the other left!'",
+            "That one movie we watched that made absolutely no sense...",
+            "Why did we think we could finish that giant pizza? (Okay, we definitely could have)."
+        ];
+
+        const promises = [
+            "I promise Me Hmesa tumhare sath rhungi😽.",
+            "I promise Hmesa gussa jyada hi krungi kbhi kam nhi krungi😁  .",
+            "I promise Koi bhi baat ho sbse pehle tumhe batati hu aur hmesa batungi🫡 .",
+            "I promise Koi bhi baat chupaungi nhi 😒 ",
+            "Aur to kuch h nhi promise ke liye 😏 ."
+        ];
+
+        const memories = [
+            "Wo din yaad kro Aditya Singh jb hm pehli baar mile the😏❤️",
+            "Aur tumse maine bola tha phone leke aana apna lekin tum nhi leke aaye the😏.",
+            "Aur jyada n ab mere jaisa attitude mt sikho thik😏.",
+            "Baki to tum meri pyari si darling ho hi aur hmesa rhogi 💋😗.",
+            "Aur wo ak din tha jb maine tumhe 'I LOVE YOU bol' diya tha😏❤️.",
+            "Jyada smart lg rhe the uss din bs issiliye aur kuch nhi 😏😒."
+            "Ab ye sb sune ke baad jyada sar pe mt chad jana 😏❤️."
+        ];
+
+        // DOM Elements
+        const jarContents = document.getElementById('jarContents');
+        const loveJar = document.getElementById('loveJar');
+
+        const noteModal = document.getElementById('noteModal');
+        const proposalModal = document.getElementById('proposalModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const closeModal = document.querySelector('.close-modal');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const proposalBtn = document.getElementById('proposalBtn');
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const celebrationOverlay = document.getElementById('celebrationOverlay');
+        const closeCelebration = document.querySelector('.close-celebration');
+
+        // --- 1. Fill Jar with Hearts ---
+        function fillJar() {
+            const colors = ['#ff6b6b', '#ff8e8e', '#e6c3d1', '#d6336c', '#ffb7b2'];
+            const numberOfHearts = 35;
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-shape');
+
+                // Randomize position, size, rotation, color, and delay
+                const left = Math.random() * 70 + 10; // 10% to 80% width
+                const top = Math.random() * 70 + 20;  // 20% to 90% height (keep away from lid)
+                const scale = Math.random() * 0.5 + 0.5; // 0.5 to 1.0 scale
+                const rotate = Math.random() * 360;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const animDelay = Math.random() * 2;
+
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+                heart.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+                heart.style.backgroundColor = color;
+                heart.style.setProperty('--r', `${rotate}deg`); // Custom prop for keyframe
+                heart.style.animationDelay = `${animDelay}s`;
+
+                // For pseudo-elements color inheritance
+                heart.style.color = color;
+
+                // --- NEW: Make Hearts Clickable ---
+                heart.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent bubbling if needed
+                    // Pick a random category
+                    const categories = ['compliments', 'jokes', 'promises', 'memories'];
+                    const randomCat = categories[Math.floor(Math.random() * categories.length)];
+                    animateNoteAndShow(randomCat);
+                });
+
+                jarContents.appendChild(heart);
+            }
+        }
+
+        fillJar();
+
+        // Helper to pick random item
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        // --- Fly-out Animation & Modal Trigger ---
+        function animateNoteAndShow(category) {
+            // 1. Create flying element
+            const flier = document.createElement('div');
+            flier.classList.add('flying-note');
+            flier.innerHTML = '💌';
+
+            // Get jar position
+            const jarRect = loveJar.getBoundingClientRect();
+            // Start from center of jar
+            const startX = jarRect.left + jarRect.width / 2;
+            const startY = jarRect.top + jarRect.height / 2;
+
+            // Set initial position
+            flier.style.left = `${startX}px`;
+            flier.style.top = `${startY}px`;
+
+            document.body.appendChild(flier);
+
+            // 2. Animate to Center of Screen
+            // We use setTimeout to ensure the initial position is rendered before transitioning
+            requestAnimationFrame(() => {
+                const endX = window.innerWidth / 2;
+                const endY = window.innerHeight / 2;
+
+                // Subtract half width/height of flier to center it perfectly
+                flier.style.left = `${endX - 20}px`;
+                flier.style.top = `${endY - 20}px`;
+                flier.style.transform = `scale(5) rotate(720deg)`; // Spin and grow
+                flier.style.opacity = '0';
+            });
+
+            // 3. On animation end -> Show Modal & Remove flier
+            setTimeout(() => {
+                flier.remove();
+                showNote(category);
+                triggerConfetti('puff');
+            }, 800); // Matches CSS transition duration
+        }
+
+        function showNote(category) {
+            let content = "";
+            let title = "";
+            let emoji = "";
+
+            switch (category) {
+                case 'compliments':
+                    content = getRandomItem(compliments);
+                    title = "A Compliment for You";
+                    emoji = "💖";
+                    break;
+                case 'jokes':
+                    content = getRandomItem(jokes);
+                    title = "Remember this?";
+                    emoji = "😏";
+                    break;
+                case 'promises':
+                    content = getRandomItem(promises);
+                    title = "My Promise";
+                    emoji = "🤞";
+                    break;
+                case 'memories':
+                    content = getRandomItem(memories);
+                    title = "A Sweet Memory";
+                    emoji = "💌";
+                    break;
+            }
+
+            modalTitle.textContent = `${title} ${emoji}`;
+            modalText.textContent = content;
+            noteModal.classList.add('active');
+        }
+
+        // Event Listeners for Categories
+        categoryBtns.forEach(btn => {
+            if (btn.classList.contains('close-celebration')) return; // Skip the close button
+
+            btn.addEventListener('click', (e) => {
+                animateNoteAndShow(btn.dataset.category);
+            });
+        });
+
+        // Close Modal logic
+        closeModal.addEventListener('click', () => {
+            noteModal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === noteModal) {
+                noteModal.classList.remove('active');
+            }
+        });
+
+        // Proposal Logic
+        proposalBtn.addEventListener('click', () => {
+            // Animate a ring flying out? Why not
+            const flier = document.createElement('div');
+            flier.classList.add('flying-note');
+            flier.innerHTML = '💍';
+            const jarRect = loveJar.getBoundingClientRect();
+            flier.style.left = `${jarRect.left + jarRect.width / 2}px`;
+            flier.style.top = `${jarRect.top + jarRect.height / 2}px`;
+            document.body.appendChild(flier);
+
+            requestAnimationFrame(() => {
+                flier.style.left = `${window.innerWidth / 2 - 20}px`;
+                flier.style.top = `${window.innerHeight / 2 - 20}px`;
+                flier.style.transform = `scale(5)`;
+                flier.style.opacity = '0';
+            });
+
+            setTimeout(() => {
+                flier.remove();
+                proposalModal.classList.add('active');
+            }, 800);
+        });
+
+        // Evasive No Button
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth) - (window.innerWidth / 2);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight) - (window.innerHeight / 2);
+
+            const moveX = Math.random() * 200 - 100; // Constrain it a bit so it doesn't leave the modality completely if possible
+            const moveY = Math.random() * 200 - 100;
+
+            noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            // --- Send FormSubmit Email ---
+            const email = "demo@gmail.com"; // <--- CHANGE THIS
+            const formData = new FormData();
+            formData.append("message", "YES! They said YES! 🌍💖");
+            formData.append("_captcha", "false");
+
+            // We use fetch to send it in the background
+            fetch(`https://formsubmit.co/ajax/${email}`, {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => console.log("Email sent successfully", data))
+                .catch(error => console.error("Error sending email", error));
+
+            // Proceed with celebration immediately
+            proposalModal.classList.remove('active');
+            celebrationOverlay.classList.remove('hidden');
+            celebrationOverlay.classList.add('active');
+            triggerConfetti('school-pride');
+        });
+
+        closeCelebration.addEventListener('click', () => {
+            celebrationOverlay.classList.remove('active');
+            celebrationOverlay.classList.add('hidden');
+        });
+
+        // Confetti Helper
+        function triggerConfetti(type) {
+            if (typeof confetti === 'function') {
+                if (type === 'puff') {
+                    confetti({
+                        particleCount: 30,
+                        spread: 50,
+                        origin: { y: 0.6 }
+                    });
+                } else if (type === 'school-pride') {
+                    const duration = 5 * 1000;
+                    const animationEnd = Date.now() + duration;
+                    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 300 };
+
+                    const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+                    const interval = setInterval(function () {
+                        const timeLeft = animationEnd - Date.now();
+
+                        if (timeLeft <= 0) {
+                            return clearInterval(interval);
+                        }
+
+                        const particleCount = 50 * (timeLeft / duration);
+
+                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                    }, 250);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
