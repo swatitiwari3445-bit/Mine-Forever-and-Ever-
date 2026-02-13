@@ -509,7 +509,7 @@
 
         const promises = [
             "I promise Me Hmesa tumhare sath rhungi😽.",
-            "I promise Hmesa gussa jyada hi krungi kbhi kam nhi krungi😁  .",
+            "I promise Hmesa gussa jyada hi krungi kbhi kam nhi krungi😁❤️  .",
             "I promise Koi bhi baat ho sbse pehle tumhe batati hu aur hmesa batungi🫡 .",
             "I promise Koi bhi baat chupaungi nhi 😒 ",
             "Aur to kuch h nhi promise ke liye 😏 ."
